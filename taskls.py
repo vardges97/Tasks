@@ -1,25 +1,45 @@
 task_list = []
 
 
+# def add_task():
+#     task_id = input('please enter a task id: ')
+#     description = input('enter the name of the task: ')
+#     if not description:
+#         print('task description cant be empty')
+#         return
+#     priority = input("enter a priority for the task(low,medium,high):").lower
+#     if priority not in ('low','medium','high'):
+#         print('invalid task must have priority')
+#         return
+#     statuss = "incomplet"
+#     task = {
+#         'id':task_id,
+#         'description': description,
+#         'compeletion': statuss,
+#         'priority': priority
+#     }
+#     task_list.append(task)
+#     print('task added successfully')
+
 def add_task():
     task_id = input('please enter a task id: ')
-    description = input('enter the name of the task: ')
+    description = input("Enter task description: ")
     if not description:
-        print('task description cant be empty')
+        print("Task description cannot be empty.")
         return
-    priority = input("enter a priority for the task(low,medium,high):").lower
-    if priority not in ('low','medium','high'):
-        print('invalid task must have priority')
+    priority = input("Enter task priority (low, medium, high): ").lower()
+    if priority not in ('low', 'medium', 'high'):
+        print("Invalid priority. Task not added.")
         return
-    statuss = "incomplet"
+    status = "incompelete"
     task = {
-        'id':task_id,
+        'id': task_id,
         'description': description,
-        'compeletion': statuss,
+        'compeletion': status,
         'priority': priority
     }
     task_list.append(task)
-    print('task added successfully')
+    print("Task added successfully.")
 
 def remove_task():
     task_id = int(input('please enter the task id which you want removed: '))
@@ -56,8 +76,6 @@ def task_status():
             task['compeletion'] = status
             print('task status updated')
             return
-
-
 
 def task_priority():
     task_id = input('enter the if of the task to which you want to set priority: ')

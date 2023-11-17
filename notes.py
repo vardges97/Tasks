@@ -1,8 +1,8 @@
 journal ={}
 
 def create_note():
-    note_id = input("please enter note id")
-    note_content=input('please ernter the note')
+    note_id = input("please enter note id: ")
+    note_content=input('please ernter the note: ')
     journal[note_id] = note_content
     print(f"note {note_id} created")
 
@@ -14,22 +14,22 @@ def list_notes():
             print(f"{note_id}: {note_content[:15]}")
 
 def retrive_note():
-    note_id = input("please enter the id of the note you want retrived")
+    note_id = input("please enter the id of the note you want retrived: ")
     for note_id,note_content in journal.items():
-        print(f"Note {note_id}:{note_content} ")
+        print(journal[note_id])
     if not journal:
         print("no notes with that id found")
 
 def delete_note():
-    note_id = input("please enter the id of the note you want to delete")
+    note_id = input("please enter the id of the note you want to delete: ")
     for note_id,note_content in journal.items():
-        del  [note_id]
+        del  journal[note_id]
         print(f"{note_id} deleted from journal")
     if not  journal:
         print("no such note exists in the journal")
 
 def search_note():
-    keyword = input("please enter the word you want to find")
+    keyword = input("please enter the word you want to find: ")
     found = []
     for note_id, note_content in journal.items():
         if keyword in note_content:
@@ -60,3 +60,4 @@ while True:
         search_note()
     if choice == '6':
         print("quitting")
+        break
